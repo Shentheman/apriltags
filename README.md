@@ -10,7 +10,7 @@ http://april.eecs.umich.edu/wiki/index.php/AprilTags
 
 ## Installation
 * Install dependencies: `$ sudo aptitude install libcgal-dev`
-* Clone **both** this repo - [apriltags](https://github.com/Shentheman/apriltags) and [apriltag-cpp](https://github.com/Shentheman/apriltags-cpp) into your catkin workspace and `catkin build`
+* Clone **both** this repo - [apriltags](https://github.com/Shentheman/apriltags/tree/irg-raw3-6) and [apriltag-cpp](https://github.com/Shentheman/apriltags-cpp/tree/irg-raw3-6) into your catkin workspace and `catkin build`
 
 ## Print some AprilTags
 * Images of the default tag family can be found in `./tags/36h11.ps`
