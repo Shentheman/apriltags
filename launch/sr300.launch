@@ -1,16 +1,25 @@
+<?xml version="1.0"?>
 <launch>        
   <!-- 
        Start an apriltag node using the default settings
        to connect to an OpenNI device (e.g. Kinect). 
   -->
-  <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
-    <!--<param name="~default_tag_size" value="0.037" />-->
+  <arg name="camera_prefix" default="wrist_sr300_realsense"/>
+  <arg name="apriltags_viewer" default="true"/>
+  <arg name="apriltags_publish_detections_image" default="true"/>
 
-    <param name="~viewer" value="true" />
-    <param name="~publish_detections_image" value="true" />
+  <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
+    <!-- <param name="~default_tag_size" value="0.037" /> -->
+    <!-- <param name="~default_tag_size" value="0.02" /> -->
+
+    <!-- whether we open the pop up screen for the camera view (same as /apriltags/detections_image) -->
+    <param name="~viewer" value="$(arg apriltags_viewer)" />
+
+    <!-- whether we publish ROS topic /apriltags/detections_image as an `Image` display -->
+    <param name="~publish_detections_image" value="$(arg apriltags_publish_detections_image)" />
 
     <param name="~display_type" value="CUBE" />
-    <!--<param name="~marker_thickness" value="0.02" />-->
+    <!-- <param name="~marker_thickness" value="0.02" /> -->
 
     <!--
     <rosparam command="delete" param="tag_data" />
@@ -20,8 +29,8 @@
     </rosparam>
     -->
 
-    <remap from="~image" to="/camera/rgb/image_rect_color"/>
-    <remap from="~camera_info" to="/camera/rgb/camera_info"/>
+    <remap from="~image" to="/$(arg camera_prefix)/rgb/image_rect_color"/>
+    <remap from="~camera_info" to="/$(arg camera_prefix)/rgb/camera_info"/>
     <remap from="~marker_array" to="/apriltags/marker_array"/>
     <remap from="~detections" to="/apriltags/detections"/>
   </node>
