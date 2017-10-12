@@ -9,8 +9,10 @@
   <arg name="apriltags_publish_detections_image" default="true"/>
 
   <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
+
+    <!-- The width of the black square of the tags you printed out (not including the white margin) e.g. 37mm -->
     <!-- <param name="~default_tag_size" value="0.037" /> -->
-    <!-- <param name="~default_tag_size" value="0.02" /> -->
+    <param name="~default_tag_size" value="0.032" />
 
     <!-- whether we open the pop up screen for the camera view (same as /apriltags/detections_image) -->
     <param name="~viewer" value="$(arg apriltags_viewer)" />
@@ -19,15 +21,15 @@
     <param name="~publish_detections_image" value="$(arg apriltags_publish_detections_image)" />
 
     <param name="~display_type" value="CUBE" />
-    <!-- <param name="~marker_thickness" value="0.02" /> -->
+    <!-- <param name="~marker_thickness" value="0.04" /> -->
 
-    <!--
-    <rosparam command="delete" param="tag_data" />
+    <!-- not necessary -->
+<!--     <rosparam command="delete" param="tag_data" />
     <rosparam param="tag_data">
       "0": 
-        size: 0.02
-    </rosparam>
-    -->
+        size: 0.032
+    </rosparam> -->
+    
 
     <remap from="~image" to="/$(arg camera_prefix)/rgb/image_rect_color"/>
     <remap from="~camera_info" to="/$(arg camera_prefix)/rgb/camera_info"/>
