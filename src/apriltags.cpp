@@ -297,7 +297,8 @@ void ImageCallback(const sensor_msgs::ImageConstPtr& msg)
     visualization_msgs::MarkerArray marker_transforms;
     apriltags::AprilTagDetections apriltag_detections;
     apriltag_detections.header.frame_id = msg->header.frame_id;
-    apriltag_detections.header.stamp = msg->header.stamp;
+    // apriltag_detections.header.stamp = msg->header.stamp;
+    apriltag_detections.header.stamp = ros::Time::now();
 
     cv_bridge::CvImagePtr subscribed_color_ptr;
     if ((viewer_) || (publish_detections_image_))
@@ -342,7 +343,8 @@ void ImageCallback(const sensor_msgs::ImageConstPtr& msg)
         // Fill in MarkerArray msg
         visualization_msgs::Marker marker_transform;
         marker_transform.header.frame_id = msg->header.frame_id;
-        marker_transform.header.stamp = msg->header.stamp;
+        // marker_transform.header.stamp = msg->header.stamp;
+        marker_transform.header.stamp = ros::Time::now();
 
         // Only publish marker for 0.5 seconds after it
         // was last seen
