@@ -16,9 +16,9 @@ ENDING_TAG = 19
 # 472 = 708/3*2
 # This is for honda
 
-RESIZE_PDF = 236
-# 236: The output is a 1.6 cm tag surrounded by 0.2 cm of padding (2 cm square total).
-# 236 = 708/3*1
+RESIZE_PDF = 354
+# 354: The output is a 2.4 cm tag surrounded by 0.3 cm of padding (3 cm square total).
+# 354 = 708/2
 # This is for Ankit's table setting
 
 
