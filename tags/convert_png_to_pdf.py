@@ -6,7 +6,7 @@ import subprocess, math, shutil, os
 STARTING_TAG = 0
 ENDING_TAG = 19
 
-RESIZE_PDF = 708
+# RESIZE_PDF = 708
 # 708 is the default number for Personal Robotics Lab
 # The output is a 4.8 cm tag surrounded by 0.6 cm of padding (6 cm square total).
 # https://github.com/personalrobotics/kinbody_detector
@@ -15,6 +15,11 @@ RESIZE_PDF = 708
 # 472: The output is a 3.2 cm tag surrounded by 0.4 cm of padding (4 cm square total).
 # 472 = 708/3*2
 # This is for honda
+
+RESIZE_PDF = 354
+# 354: The output is a 2.4 cm tag surrounded by 0.3 cm of padding (3 cm square total).
+# 354 = 708/2
+# This is for Ankit's table setting
 
 RESIZE_PNG = 1000
 # 1000 we need the png to be 1000 * 1000 - very high resolution
@@ -29,8 +34,8 @@ os.makedirs("./" + OUTPUT_DIR)
 # Since we are using 300 DPI, the letter size is 2550x3300
 # http://www.a4papersize.org/a4-paper-size-in-pixels.php
 # Somehow the montage is larger than the A4 page, so we need to make 80%.
-LETTER_WIDTH = 2550
-LETTER_HEIGHT = 3300
+LETTER_WIDTH = 2550*0.9
+LETTER_HEIGHT = 3300*0.9
 
 # When we montage all the tags into 1 pdf, the border between
 # each row and col of tags.
