@@ -29,7 +29,8 @@ http://april.eecs.umich.edu/wiki/index.php/AprilTags
     ```
     $ param name="~default_tag_size" value="0.046"
     ```
-    * **TODO**: The width seems not necessary (the parameter might be able to speed up the recognition process?)
+    * The software will compute the Z by comparing the original `default_tag_size` and the actual tag size in the view of the camera.
+    * Note that the tag has a white margin on the outside. Note that this `default_tag_size` is the length of a side of the black square, **inside but not including** the white margin.
   * If your webcam does not publish images to the default topic name, you may need to edit these 2 parameters:
     ```
     $ remap from="~image" to="/camera/rgb/image_rect"
